@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&family=Hubballi&display=swap');
+* {
+  margin: 0;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-image: url(../img/bg.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+.w-fit {
+  max-width: fit-content;
+}
+
+.page-info {
+  border-left: 0.2rem solid #efefef;
+  border-radius: 0.5rem 0 0 0;
+
+  h2 {
+    border-radius: 0.3rem 0.5rem 0.5rem 0;
+    background-color: #efefef;
+    padding: 0.2rem 1rem;
+    font-size: 1.5rem;
+  }
+  h1 {
+    color: #fafafa;
+    font-size: 4rem;
+    margin-left: 3rem;
+    font-family: 'Allison', cursive;
+  }
+  h3 {
+    color: #fafafa;
+    font-size: 1.5rem;
+    margin-left: 6rem;
+    font-family: 'Hubballi', cursive;
+  }
+}
+
+.products {
+  width: 100%;
+
+  .product-cards {
+    width: 100%;
+
+    .card {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      z-index: 2;
+
+      .overlay {
+        position: absolute;
+        padding: 0.5rem 20%;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+        background-color: rgba(255, 196, 0, 0.8);
+        transition: all 0.2s ease-in-out;
+        transform: translateY(100%);
+
+        .description {
+          padding: 0.5rem;
+          line-height: 0.8rem;
+          font-size: 0.8rem;
+          border-top: 1px solid #333;
+          border-bottom: 1px solid #333;
+        }
+
+        .actions {
+          font-size: 0.7rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin-top: 0.5rem;
+
+          img {
+            margin-right: 0.25rem;
+            height: 0.7rem;
+          }
+        }
+      }
+
+      &:hover {
+        .overlay {
+          transform: translateY(0%);
+        }
+      }
+    }
+    .card-img-bottom {
+      display: flex;
+      height: 50vh;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .product-descriptions {
+    width: 100%;
+
+    .card {
+      overflow: hidden;
+      border: 0;
+
+      &.hide {
+        opacity: 0;
+      }
+
+      left: 0;
+      right: 0;
+      height: calc(50vh + 41px + 2px);
+
+      display: flex;
+      flex-direction: row;
+
+      & > .title {
+        flex: 0;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.5rem;
+        background-color: #333;
+        border: .185rem solid #fafafa;
+        border-radius: 0 0.25rem 0.25rem 0;
+      }
+
+      .cover {
+        flex: 1;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .content {
+        flex: 1;
+        padding: 1rem 2rem;
+        max-height: 100%;
+        overflow-y: auto;
+
+        & > .food-name {
+          font-size: 3rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+          font-family: 'Allison', cursive;
+        }
+
+        & > .info {
+          font-size: .8rem;
+          display: flex;
+          flex-direction: row;
+          & > div {
+              padding: .5rem;
+              border-bottom: 1px solid #ccc;
+              flex: 1;
+
+            &:not(:last-child) {
+              border-right: 1px solid #ccc;
+            }
+
+            &:last-child {
+              flex: 2;
+            }
+          }
+        }
+
+        & > .description {
+          font-size: 0.8rem;
+          margin-top: 0.5rem;
+          padding: 1rem .5rem;
+          border-bottom: 1px solid #ccc;
+        }
+      }
+    }
+  }
+}
+
+
+.supertop {
+  z-index: 50;
+}
+
+.animation-slide-up-out {
+  opacity: 0;
+  animation: slideUpfadeOut 0.5s ease-in-out;
+}
+
+.animation-slide-up-in {
+  opacity: 1;
+  animation: slideUpfadeIn 0.5s ease-in-out;
+}
+
+.animation-slide-down-out {
+  opacity: 0;
+  animation: slideDownfadeOut 0.5s ease-in-out;
+}
+
+.animation-slide-down-in {
+  opacity: 1;
+  animation: slideDownfadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideUpfadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideUpfadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownfadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownfadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
